@@ -20,8 +20,8 @@
 // 菜单项定义
 static MenuItem menuItems[MENU_ITEMS_COUNT] = {
 	//   名称      值    最小值 最大值 步进  精度 单位
-    {"脉冲①  ", 11.0f, 0.0f, 99.0f, 1.0f, 0,"ms"},
-    {"脉冲②  ", 22.0f, 0.0f, 99.0f, 1.0f, 0,"ms"},
+    {"脉冲1  ", 11.0f, 0.0f, 99.0f, 1.0f, 0,"ms"},
+    {"脉冲2  ", 22.0f, 0.0f, 99.0f, 1.0f, 0,"ms"},
     {"脉冲间隔", 3.0f, 0.0f, 99.0f, 1.0f, 0,"ms"},
     {"触发时间", 2.0f, 0.0f, 99.0f, 1.0f, 0,"s"},
 		{"电流校准", 3.4f, 0.0f, 99.0f, 0.1f, 1,"mR"},
@@ -148,20 +148,16 @@ void Menu_DrawMainScreen(void) {
 	LCD_Fill(53, 40,104 ,79,Light_pink);
 	LCD_Fill(106, 40,160,79,Light_purple);
 	
-//	LCD_ShowChinese(3,3,"脉冲①",DARKBLUE,Light_yellow,16,0);//显示汉字串
-	LCD_ShowAuto(3,3,"脉冲 1",DARKBLUE,Light_yellow,16,0);//显示汉字串
-//	LCD_ShowString(38,3,"1",WHITE,BROWN,16,0);//显示字符串
-	LCD_ShowChinese(64,3,"间隔",DARKBLUE,Light_green,16,0);//显示汉字串
-	LCD_ShowChinese(109,3,"脉冲②",DARKBLUE,Mint_Green,16,0);//显示汉字串
-//	LCD_ShowString(144,3,"2",WHITE,GRAY,16,0);//显示字符串  
-	LCD_ShowChinese(11,43,"等待",DARKBLUE,Light_blue,16,0);//显示汉字串
-	LCD_ShowChinese(56,43,"总次数",DARKBLUE,Light_pink,16,0);//显示汉字串
-	LCD_ShowChinese(117,43,"次数",DARKBLUE,Light_purple,16,0);//显示汉字串
+	LCD_ShowAuto(8,3,"脉冲1",DARKBLUE,Light_yellow,16,0);//显示汉字串
+	LCD_ShowAuto(64,3,"间隔",DARKBLUE,Light_green,16,0);//显示汉字串
+	LCD_ShowAuto(114,3,"脉冲2",DARKBLUE,Mint_Green,16,0);//显示汉字串
+	LCD_ShowAuto(11,43,"等待",DARKBLUE,Light_blue,16,0);//显示汉字串
+	LCD_ShowAuto(56,43,"总次数",DARKBLUE,Light_pink,16,0);//显示汉字串
+	LCD_ShowAuto(117,43,"次数",DARKBLUE,Light_purple,16,0);//显示汉字串
 	
-	LCD_Fill(0,86,LCD_W,LCD_H,BLACK);	
-  LCD_ShowString(3,86,"V:",GRED,BLACK,16,0);//显示汉字串
-	LCD_ShowChinese(64,86,"电流",GRED,BLACK,16,0);//显示汉字串
-  LCD_ShowString(97,86,":",GRED,BLACK,16,0);//显示汉字串
+  LCD_ShowAuto(3,86,"V:",GRED,BLACK,16,0);//显示汉字串
+	LCD_ShowAuto(64,86,"电流",GRED,BLACK,16,0);//显示汉字串
+  LCD_ShowAuto(97,86,":",GRED,BLACK,16,0);//显示汉字串
 	
 	//在指定位置画一个矩形
 	LCD_DrawRectangle(0, 109, 37, 127,WHITE);
@@ -211,14 +207,14 @@ void Menu_DrawMenuScreen(void) {
                     sprintf(buf, "%.2f %s", menuItems[i].value, menuItems[i].unit);
                     sprintf(cnbuf, "%s", menuItems[i].name);
                 }
-                LCD_ShowChinese(10, yPos, (uint8_t *)cnbuf, 
+                LCD_ShowAuto(10, yPos, (uint8_t *)cnbuf, 
                                (i == selectedItem) ? WHITE : BLACK, 
                                (i == selectedItem) ? BLUE : WHITE, 16, 0);
                 LCD_ShowString(90, yPos, (uint8_t *)buf, 
                              (i == selectedItem) ? WHITE : BLACK, 
                              (i == selectedItem) ? BLUE : WHITE, 16, 0);
             } else { // 保存/退出项
-                LCD_ShowChinese(10, yPos, (uint8_t *)menuItems[i].name, 
+                LCD_ShowAuto(10, yPos, (uint8_t *)menuItems[i].name, 
                              (i == selectedItem) ? WHITE : BLACK, 
                              (i == selectedItem) ? BLUE : WHITE, 16, 0);
             }
@@ -251,10 +247,10 @@ void Menu_DrawMenuScreen(void) {
                     sprintf(buf, "%.2f %s", menuItems[lastSelectedItem].value, menuItems[lastSelectedItem].unit);
                     sprintf(cnbuf, "%s", menuItems[lastSelectedItem].name);
                 }
-                LCD_ShowChinese(10, lastYPos, (uint8_t *)cnbuf, BLACK, WHITE, 16, 0);
+                LCD_ShowAuto(10, lastYPos, (uint8_t *)cnbuf, BLACK, WHITE, 16, 0);
                 LCD_ShowString(90, lastYPos, (uint8_t *)buf, BLACK, WHITE, 16, 0);
             } else { // 保存/退出项
-                LCD_ShowChinese(10, lastYPos, (uint8_t *)menuItems[lastSelectedItem].name, 
+                LCD_ShowAuto(10, lastYPos, (uint8_t *)menuItems[lastSelectedItem].name, 
                              BLACK, WHITE, 16, 0);
             }
         }
@@ -278,10 +274,10 @@ void Menu_DrawMenuScreen(void) {
                     sprintf(buf, "%.2f %s", menuItems[selectedItem].value, menuItems[selectedItem].unit);
                     sprintf(cnbuf, "%s", menuItems[selectedItem].name);
                 }
-                LCD_ShowChinese(10, yPos, (uint8_t *)cnbuf, WHITE, BLUE, 16, 0);
+                LCD_ShowAuto(10, yPos, (uint8_t *)cnbuf, WHITE, BLUE, 16, 0);
                 LCD_ShowString(90, yPos, (uint8_t *)buf, WHITE, BLUE, 16, 0);
             } else { // 保存/退出项
-                LCD_ShowChinese(10, yPos, (uint8_t *)menuItems[selectedItem].name, 
+                LCD_ShowAuto(10, yPos, (uint8_t *)menuItems[selectedItem].name, 
                              WHITE, BLUE, 16, 0);
             }
         }
@@ -303,7 +299,7 @@ void Menu_DrawEditScreen(void) {
     if(first_enter) {
         LCD_Fill(0, 0, LCD_W, LCD_H, WHITE);
         first_enter = false;
-				LCD_ShowChinese(10, 40, (uint8_t *)menuItems[itemIdx].name, BLACK, WHITE, 16, 0);
+				LCD_ShowAuto(10, 40, (uint8_t *)menuItems[itemIdx].name, BLACK, WHITE, 16, 0);
 
 		}	
 	
@@ -321,7 +317,7 @@ void Menu_DrawEditScreen(void) {
         
         // 高亮显示参数值
         LCD_Fill(90, 40,LCD_W, 56, BLUE);
-        LCD_ShowString(90, 40, (uint8_t *)(buf + strlen(menuItems[itemIdx].name)), WHITE, BLUE, 16, 0);
+        LCD_ShowAuto(90, 40, (uint8_t *)(buf + strlen(menuItems[itemIdx].name)), WHITE, BLUE, 16, 0);
         
     }
 		
@@ -385,11 +381,11 @@ void display_update(void) {
 //			LCD_DrawRectangle(157, 113, 159, 123,WHITE);	 
 			
 			sprintf((char*)temp,"%dms",WELD_PULSE1);
-			LCD_ShowString(10,22,temp,DARKBLUE,Light_yellow,16,0);			
+			LCD_ShowString(13,22,temp,DARKBLUE,Light_yellow,16,0);			
 			sprintf((char*)temp,"%dms",PULSE);
-			LCD_ShowString(62,22,temp,DARKBLUE,Light_green,16,0);			
+			LCD_ShowString(65,22,temp,DARKBLUE,Light_green,16,0);			
 			sprintf((char*)temp,"%dms",WELD_PULSE2);
-			LCD_ShowString(114,22,temp,DARKBLUE,Mint_Green,16,0);			
+			LCD_ShowString(117,22,temp,DARKBLUE,Mint_Green,16,0);			
 			sprintf((char*)temp,"%dS",Waiting_time);
 			LCD_ShowString(15,60,temp,DARKBLUE,Light_blue,16,0);			
 			sprintf((char*)temp,"%d",Total_times);

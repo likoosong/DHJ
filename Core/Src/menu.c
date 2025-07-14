@@ -156,8 +156,7 @@ void Menu_DrawMainScreen(void) {
 	LCD_ShowAuto(117,43,"次数",DARKBLUE,Light_purple,16,0);//显示汉字串
 	
   LCD_ShowAuto(3,86,"V:",GRED,BLACK,16,0);//显示汉字串
-	LCD_ShowAuto(64,86,"电流",GRED,BLACK,16,0);//显示汉字串
-  LCD_ShowAuto(97,86,":",GRED,BLACK,16,0);//显示汉字串
+	LCD_ShowAuto(72,86,"电流:",GRED,BLACK,16,0);//显示汉字串
 	
 	//在指定位置画一个矩形
 	LCD_DrawRectangle(0, 109, 37, 127,WHITE);

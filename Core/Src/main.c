@@ -201,7 +201,7 @@ void Charge_equalization(void){
 					LCD_ShowString(124,110,temp,RED,BLACK,16,0);}
 					else {LCD_ShowString(124,110,temp,GREEN,BLACK,16,0);}
 						
-					sprintf((char*)temp,"%.1fV",VV);
+					sprintf((char*)temp,"%.2fV",VV);
 					if(VV <= CCV){
 					LCD_ShowString(20,86,temp,RED,BLACK,16,0);}
 					else {LCD_ShowString(20,86,temp,GREEN,BLACK,16,0);}
@@ -255,9 +255,9 @@ void Pulse(void) {
                 sprintf((char*)temp,"%d",Times);
                 LCD_ShowString(114,60,temp,DARKBLUE,Light_purple,16,0);
 
-                LCD_Fill(105,86,LCD_W,102,BLACK);
+                LCD_Fill(113,86,LCD_W,102,BLACK);
                 sprintf((char*)temp,"%.0fA",VI / res * 1000);
-                LCD_ShowString(105,86,temp,GREEN,BLACK,16,0);
+                LCD_ShowString(113,86,temp,GREEN,BLACK,16,0);
             }
         }
     }
